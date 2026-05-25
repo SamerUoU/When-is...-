@@ -8,6 +8,15 @@ const minutesValue = document.querySelector("#minutes");
 const secondsValue = document.querySelector("#seconds");
 
 const STORAGE_KEY = "selectedHoliday";
+const THEME_IDS = [
+  "christmas",
+  "thanksgiving",
+  "easter",
+  "new-year",
+  "halloween",
+  "independence-day",
+  "valentines-day",
+];
 let selectedHoliday = null;
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -41,6 +50,7 @@ function renderCountdown() {
   const remaining = splitDuration(targetDate.getTime() - now.getTime());
 
   document.title = `${selectedHoliday.name} Countdown`;
+  applyHolidayTheme(selectedHoliday.id);
   statusText.textContent = targetDate.getFullYear() === now.getFullYear()
     ? "Next public holiday"
     : "Next occurrence";
@@ -51,6 +61,12 @@ function renderCountdown() {
   hoursValue.textContent = formatUnit(remaining.hours);
   minutesValue.textContent = formatUnit(remaining.minutes);
   secondsValue.textContent = formatUnit(remaining.seconds);
+}
+
+function applyHolidayTheme(id) {
+  const themeId = THEME_IDS.includes(id) ? id : "christmas";
+
+  document.body.dataset.theme = themeId;
 }
 
 function getLocalHolidayDate(holiday) {
