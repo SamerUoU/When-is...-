@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Holiday Countdown</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" aria-label="Holiday selector">
+      <a class="brand" href="./" aria-label="Holiday Countdown home">Holiday Countdown</a>
+      <label class="holiday-picker">
+        <span class="sr-only">Choose holiday</span>
+        <select id="holidaySelect" aria-label="Choose holiday">
+          <option value="christmas">Christmas</option>
+          <option value="thanksgiving">Thanksgiving</option>
+          <option value="easter">Easter</option>
+          <option value="new-year">New Year's Day</option>
+          <option value="halloween">Halloween</option>
+          <option value="independence-day">Independence Day</option>
+          <option value="valentines-day">Valentine's Day</option>
+        </select>
+      </label>
+    </header>
+
+    <main class="countdown-shell" aria-live="polite">
+      <section class="countdown-panel" aria-labelledby="holidayName">
+        <p class="eyebrow" id="statusText">Next public holiday</p>
+        <h1 id="holidayName">Christmas</h1>
+        <time id="holidayDate" datetime="">Thursday, December 25, 2026</time>
+
+        <div class="countdown-grid" aria-label="Countdown">
+          <div class="time-unit">
+            <strong id="days">000</strong>
+            <span>Days</span>
+          </div>
+          <div class="time-unit">
+            <strong id="hours">00</strong>
+            <span>Hours</span>
+          </div>
+          <div class="time-unit">
+            <strong id="minutes">00</strong>
+            <span>Minutes</span>
+          </div>
+          <div class="time-unit">
+            <strong id="seconds">00</strong>
+            <span>Seconds</span>
+          </div>
+        </div>
+
+        <p class="subtle" id="localNote">Countdown uses your browser's local time.</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
